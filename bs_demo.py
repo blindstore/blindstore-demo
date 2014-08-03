@@ -10,7 +10,7 @@ from urllib.parse import urljoin
 
 def _get_date():
     #return dt.datetime.now().isoformat()
-    return dt.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    return dt.datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f')[:-3]
 
 
 class DemoClient(object):
