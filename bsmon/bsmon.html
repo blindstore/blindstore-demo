@@ -1,56 +1,38 @@
 <head>
-  <title>bsmon</title>
+  <title>Blindstore demo</title>
 </head>
 
 <body>
-  <div id="client">
-    {{> client}}
-  </div>
-  <div id="server">
-    {{> server}}
+
+  <div class="main">
+    <div id="client">
+      <h1>Client</h1>
+      {{> client}}
+    </div>
+    <div id="server">
+      <h1>Server</h1>
+      {{> server}}
+    </div>
   </div>
 </body>
 
 <template name="client">
-  <h1>Client</h1>
-  <div>
-    {{#each evt_list}}
-      <div>
-        <p style='font-size: 70%'>{{date}}</p>
-        <p>{{title}}</p>
-        <p>{{description}}</p>
-      </div>
-      <hr/>
-    {{/each}}
-  </div>
-  <!--input type="button" value="Click" /-->
+  {{#each evt_list}}
+    <div class="entry">
+      <p style='font-size: 70%'>{{date}}</p>
+      <p>{{title}}</p>
+      <p>{{description}}</p>
+    </div>
+  {{/each}}
 </template>
 
 <template name="server">
-  <h1>Server</h1>
-  <div style='border: 1px solid black;'>
-    <h2>Server status:</h2>
-    {{#if status}}
-      <p>
-        (last updated: {{status.date}}) <br/>
-        <!--{{status.db}} <br/>-->
-        parsed db:
-        <table>
-          {{#each status.parsed_db}}
-            <tr>
-              <td>{{this.index}}</td><td>{{this.ip}}</td>
-            </tr>
-          {{/each}}
-        </table>
-        <!--{{status.parsed_db}}<br/>-->
-      </p>
-    {{else}}
-      <p style='font-style:italic'>
-        (No news from the server so far)
-      </p>
-    {{/if}}
-    <!--{{status}}-->
-  </div>
+  {{#if status}}
+    <div class="box">
+      <p style='font-size: 70%'>Database {{status.date}}</p>
+      <p>{{status.db}}</p>
+    </div>
+  {{/if}}
   <div>
     {{#each evt_list}}
       {{> evt_list_item}}
@@ -59,10 +41,9 @@
 </template>
 
 <template name="evt_list_item">
-  <div>
+  <div class="entry">
     <p style='font-size: 70%'>{{date}}</p>
     <p>{{title}}</p>
     <p>{{description}}</p>
   </div>
-  <hr/>
 </template>

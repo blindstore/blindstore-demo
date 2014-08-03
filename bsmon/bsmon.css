@@ -1,1 +1,83 @@
 /* CSS declarations go here */
+
+@import url(//fonts.googleapis.com/css?family=Montserrat:700);
+@import url(//fonts.googleapis.com/css?family=Inconsolata:400,700);
+
+html,body {
+  height: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font: 16px/1.5 Inconsolata, sans-serif;
+}
+
+body {
+  margin: 2em;
+}
+
+h1, h2, h3, h4 {
+  font-family: Montserrat, sans-serif;
+  margin: 0 0 0.5rem -0.1rem /* align left edge */;
+  line-height: 1;
+  color: #111;
+  text-rendering: optimizeLegibility;
+}
+
+.main {
+  width: 100%;
+  height: 100%;
+}
+
+div#client {
+  text-align: right;
+  float: left;
+  width: 50%;
+
+  border-right: 1px solid #ccc;
+  height: 100%;
+}
+
+div#server {
+  text-align: left;
+  float: right;
+  width: 50%;
+  height: 100%;
+}
+
+h1 {
+  padding-bottom: .5em;
+}
+
+#client h1 {
+  padding-right: 1em;
+  border-bottom: 1px solid #333;
+}
+
+#server h1 {
+  padding-left: 1em;
+  border-bottom: 1px solid #333;
+}
+
+.entry {
+  border-bottom: 1px solid #ccc;
+}
+
+#client .entry {
+  padding-right: 2em;
+  clear: right;
+}
+
+#server .entry {
+  padding-left: 2em;
+  clear: left;
+}
+
+.box {
+  border: 1px solid #666;
+  padding-left: 1em;
+  margin: 1em;
+}

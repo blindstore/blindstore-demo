@@ -24,10 +24,10 @@ ServerStatus = new Meteor.Collection("server_status");
 
 if (Meteor.isClient) {
     Template.client.evt_list = function () {
-        return ClientEvents.find({}, {sort: {date: 1}});
+        return ClientEvents.find({}, {sort: {date: -1}});
     };
     Template.server.evt_list = function () {
-        return ServerEvents.find({}, {sort: {date: 1}});
+        return ServerEvents.find({}, {sort: {date: -1}});
     };
     Template.server.status = function () {
         var st =  ServerStatus.findOne({});
@@ -48,13 +48,6 @@ if (Meteor.isClient) {
         return st;
     };
 
-    Template.client.events({
-        'click input': function () {
-            // template data, if any, is available in 'this'
-            if (typeof console !== 'undefined')
-                console.log("You pressed the button");
-        }
-    });
 }
 
 if (Meteor.isServer) {
