@@ -30,7 +30,15 @@
   {{#if status}}
     <div class="box">
       <p style='font-size: 70%'>Database {{status.date}}</p>
-      <p>{{status.db}}</p>
+      <ol start='0'>
+      {{#each status.db}}
+        <li>
+        {{#each this}}
+          {{this}}
+        {{/each}}
+        </li>
+      {{/each}}
+      </ol>
     </div>
   {{/if}}
   <div>

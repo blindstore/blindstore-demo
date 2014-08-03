@@ -52,6 +52,19 @@ h1 {
   padding-bottom: .5em;
 }
 
+ol {
+  counter-reset: my-badass-counter -1;
+  list-style: none;
+  padding-left: 0;
+}
+
+ol li:before {
+  content: counter(my-badass-counter) '.';
+  counter-increment: my-badass-counter;
+  color: #666;
+  padding-right: .25em;
+}
+
 #client h1 {
   padding-right: 1em;
   border-bottom: 1px solid #333;
