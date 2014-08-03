@@ -26,7 +26,7 @@ class DemoClient(object):
             'title': title,
             'description': message,
         }
-        print(urljoin(self.api_addr, endpoint))
+        #print(urljoin(self.api_addr, endpoint))
         r = requests.post(urljoin(self.api_addr, endpoint),
                           data=json.dumps(data_dict))
 

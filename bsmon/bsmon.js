@@ -52,9 +52,9 @@ if (Meteor.isClient) {
 
 if (Meteor.isServer) {
     Meteor.startup(function () {
-        //ServerStatus.remove({});
-        //ClientEvents.remove({});
-        //ServerEvents.remove({});
+        ServerStatus.remove({});
+        ClientEvents.remove({});
+        ServerEvents.remove({});
         // code to run on server at startup
         collectionApi = new CollectionAPI({
             apiPath: 'rest',
