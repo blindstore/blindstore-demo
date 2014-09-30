@@ -13,6 +13,7 @@ Meteor:
 meteor-collectionapi:
 
     npm install meteorite
+    cd bsmon
     node_modules/.bin/mrt add collection-api
 
 ## Run
