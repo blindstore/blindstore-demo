@@ -1,28 +1,26 @@
-Blindstore event monitor
-========================
+# Blindstore event monitor
 
 Event monitor for real-time tracking the execution of Blindstore clients and server.
 
-Install
--------
+## Install
 
-* Meteor
+### Prerequisites
 
-      curl https://install.meteor.com/ | sh
+Meteor:
 
-* meteor-collectionapi
+    curl https://install.meteor.com/ | sh
 
-      npm install meteorite
-      node_modules/.bin/mrt add collection-api
+meteor-collectionapi:
 
-Run
----
+    npm install meteorite
+    node_modules/.bin/mrt add collection-api
+
+## Run
 
     cd bsmon
     meteor
 
-Usage
------
+## Usage
 
 Open `localhost:3000` with a browser.
 
