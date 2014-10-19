@@ -23,12 +23,6 @@ ServerStatus = new Meteor.Collection("server_status");
 */
 
 if (Meteor.isClient) {
-    Template.client.evt_list = function () {
-        return ClientEvents.find({}, {sort: {date: -1}});
-    };
-    Template.server.evt_list = function () {
-        return ServerEvents.find({}, {sort: {date: -1}});
-    };
     Template.entries.helpers({
 	// all events in chronological order
         events: function () {
