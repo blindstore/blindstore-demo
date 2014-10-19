@@ -1,57 +1,64 @@
 <head>
   <title>Blindstore demo</title>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 </head>
 
 <body>
 
-  <div class="main">
-    <div id="client">
-      <h1>Client</h1>
-      {{> client}}
+  <div class="container-fluid" id="main">
+    <div class="row">
+       <div class="col-md-6">
+         <h1>Client</h1>
+       </div>
+       <div class="col-md-6">
+         <h1>Server</h1>
+         {{> serverstatus}}
+       </div>
     </div>
-    <div id="server">
-      <h1>Server</h1>
-      {{> server}}
-    </div>
+    {{> entries}}
   </div>
 </body>
 
-<template name="client">
-  {{#each evt_list}}
-    <div class="entry">
-      <p style='font-size: 70%'>{{date}}</p>
-      <p>{{title}}</p>
-      <p>{{description}}</p>
+<template name="entries">
+  {{#each events}}
+    <div class="row">
+        {{#if typeIs "server"}}
+            <div class="col-md-6"></div>
+        {{/if}}
+            <div class="col-md-6">
+		    <div class="entry">
+		      <p class="entry-date">{{date}}</p>
+		      <p class="entry-title">{{title}}</p>
+		      <p class="entry-description">{{description}}</p>
+		    </div>
+            </div>
+        {{#if typeIs "client"}}
+            <div class="col-md-6"></div>
+        {{/if}}
     </div>
   {{/each}}
 </template>
 
-<template name="server">
+<template name="serverstatus">
   {{#if status}}
     <div class="box">
       <p style='font-size: 70%'>Database {{status.date}}</p>
       <ol start='0'>
       {{#each status.db}}
-        <li>
-        {{#each this}}
-          {{this}}
-        {{/each}}
-        </li>
+	<li>
+	{{#each this}}
+	  {{this}}
+	{{/each}}
+	</li>
       {{/each}}
       </ol>
     </div>
   {{/if}}
-  <div>
-    {{#each evt_list}}
-      {{> evt_list_item}}
-    {{/each}}
-  </div>
-</template>
-
-<template name="evt_list_item">
-  <div class="entry">
-    <p style='font-size: 70%'>{{date}}</p>
-    <p>{{title}}</p>
-    <p>{{description}}</p>
-  </div>
 </template>

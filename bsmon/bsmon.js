@@ -29,7 +29,26 @@ if (Meteor.isClient) {
     Template.server.evt_list = function () {
         return ServerEvents.find({}, {sort: {date: -1}});
     };
-    Template.server.status = function () {
+    Template.entries.helpers({
+	// all events in chronological order
+        events: function () {
+            var client_events = ClientEvents.find().fetch();
+            // tag all client events
+            client_events.forEach(function(entry){entry.type = "client"});
+
+            var server_events = ServerEvents.find().fetch();
+            // tag all server clients
+            server_events.forEach(function(entry){entry.type = "server"});
+
+            // merge client and server events
+            var all_events = client_events.concat(server_events);
+            // order by date, most recent events first
+            return _.sortBy(all_events, function(evt) {return evt.date;}).reverse();
+        }
+    });
+    // provide switch for client or server event
+    Template.entries.typeIs = function (type) {return this.type === type};
+    Template.serverstatus.status = function () {
         var st =  ServerStatus.findOne({});
         if (typeof st !== 'undefined') {
             // just an example to start working on the UI
