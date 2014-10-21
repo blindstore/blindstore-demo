@@ -71,7 +71,7 @@ See also: https://github.com/crazytoad/meteor-collectionapi
 * Install `pyscarab`, a python wrapper to this library, see https://github.com/blindstore/pyscarab .
 * Install the event monitor, see above in this readme.
 * Install Blindstore, see https://github.com/blindstore/blindstore .
-* Check out the `demo` branch of Blindstore: <code>git checkout demo</code>.
+* The code that sends messages to the event monitor is only included in the `demo` branch of the `blindstore` repository. Thus after installing Blindstore, now switch your local copy to the `demo` branch: <code>git checkout demo</code>.
 * In the Blindstore directory, do <code>cp ../blindstore-demo/bs_demo.py .</code>
 
 ### Start the demo
